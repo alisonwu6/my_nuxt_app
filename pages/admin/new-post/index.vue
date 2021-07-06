@@ -7,12 +7,13 @@
 </template>
 
 <script>
-import AdminPostForm from "@/components/Admin/AdminPostForm";
+import AdminPostForm from '@/components/Admin/AdminPostForm';
 
 export default {
   components: {
-    AdminPostForm
-  }
+    AdminPostForm,
+  },
+  layout: 'admin',
 };
 </script>
 
