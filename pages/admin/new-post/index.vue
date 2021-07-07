@@ -18,7 +18,7 @@ export default {
   methods: {
     onSubmitted(postData) {
       axios
-        .post('https://nuxt-porfolio-default-rtdb.firebaseio.com/posts.json', postData)
+        .post('https://nuxt-porfolio-app-default-rtdb.firebaseio.com/posts.json', postData)
         .then((result) => console.log(result))
         .catch((e) => console.log(e));
     },
