@@ -10,6 +10,13 @@ const createStore = () => {
       setPosts(state, posts) {
         state.loadedPosts = posts;
       },
+      addPost(state, post) {
+        state.loadedPosts.push(post);
+      },
+      editPost(state, editedPost) {
+        const postIndex = state.loadedPosts.findIndex(post => post.id === editedPost.id);
+        state.loadedPosts[postIndex] = editedPost;
+      }
     },
     actions: {
       nuxtServerInit(vuexContext, context) {
@@ -22,6 +29,28 @@ const createStore = () => {
             vuexContext.commit('setPosts', postsArray)
           })
           .catch(e => context.error(e));
+      },
+      addPost(vuexContext, post) {
+        const createPost = {
+          ...post,
+          updatedDate: new Date()
+        }
+        return axios
+          .post('https://nuxt-porfolio-app-default-rtdb.firebaseio.com/posts.json', createPost)
+          .then((result) => {
+            vuexContext.commit('addPost', { ...createPost, id: result.data.name });
+          })
+          .catch((e) => console.log(e));
+      },
+      editPost(vuexContext, editedPost) {
+        return axios
+          .put(
+            'https://nuxt-porfolio-app-default-rtdb.firebaseio.com/posts/' + editedPost.id + '.json',
+            editedPost
+          ).then(result => {
+            vuexContext.commit('editPost', editedPost);
+          })
+          .catch((e) => console.log(e));
       },
       setPosts(vuexContext, posts) {
         vuexContext.commit('setPosts', posts);
