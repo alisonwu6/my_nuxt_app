@@ -26,11 +26,15 @@ export default {
   /*
    ** Global CSS
    */
-  css: [],
+  css: [
+    '~assets/styles/main.css'
+  ],
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [],
+  plugins: [
+    '~plugins/core-components.js'
+  ],
   /*
    ** Nuxt.js dev-modules
    */
@@ -47,6 +51,10 @@ export default {
      ** You can extend webpack config here
      */
     extend(config, ctx) { },
+  },
+  transition: {
+    name: 'fade',
+    mode: 'out-in'
   },
   env: {
     baseUrl: process.env.BASE_URL || 'https://nuxt-porfolio-app-default-rtdb.firebaseio.com'
