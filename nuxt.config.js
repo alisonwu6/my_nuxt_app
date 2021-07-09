@@ -43,7 +43,13 @@ export default {
   /*
    ** Nuxt.js modules
    */
-  modules: [],
+  modules: [
+    '@nuxtjs/axios',
+  ],
+  axios: {
+    baseURL: process.env.BASE_URL || 'https://nuxt-porfolio-app-default-rtdb.firebaseio.com',
+    credentials: false
+  },
   /*
    ** Build configuration
    */
@@ -57,7 +63,7 @@ export default {
     name: 'fade',
     mode: 'out-in'
   },
-  env: {
-    baseUrl: process.env.BASE_URL || 'https://nuxt-porfolio-app-default-rtdb.firebaseio.com'
-  }
+  // env: {
+  //   baseUrl: process.env.BASE_URL || 'https://nuxt-porfolio-app-default-rtdb.firebaseio.com'
+  // }
 };
