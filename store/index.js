@@ -4,7 +4,7 @@ const createStore = () => {
   return new Vuex.Store({
     state: {
       loadedPosts: [],
-      token: '',
+      token: null,
     },
     mutations: {
       setPosts(state, posts) {
@@ -19,17 +19,18 @@ const createStore = () => {
       },
       setToken(state, token) {
         state.token = token;
-      }
+      },
     },
     actions: {
       nuxtServerInit(vuexContext, context) {
-        return context.app.$axios.$get('/posts.json')
+        return context.app.$axios
+          .$get('/posts.json')
           .then(data => {
-            const postsArray = []
+            const postsArray = [];
             for (const key in data) {
-              postsArray.push({ ...data[key], id: key })
+              postsArray.push({ ...data[key], id: key });
             }
-            vuexContext.commit('setPosts', postsArray)
+            vuexContext.commit('setPosts', postsArray);
           })
           .catch(e => context.error(e));
       },
@@ -37,7 +38,7 @@ const createStore = () => {
         const createPost = {
           ...post,
           updatedDate: new Date()
-        }
+        };
         return this.$axios
           .$post('/posts.json?auth=' + vuexContext.state.token, createPost)
           .then((data) => {
@@ -79,6 +80,9 @@ const createStore = () => {
     getters: {
       loadedPosts(state) {
         return state.loadedPosts;
+      },
+      isAuthenticated(state) {
+        return state.token != null;
       },
     },
   });

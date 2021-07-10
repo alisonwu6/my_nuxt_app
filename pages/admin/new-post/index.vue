@@ -10,10 +10,11 @@
 import AdminPostForm from '@/components/Admin/AdminPostForm';
 
 export default {
+  layout: 'admin',
+  middleware: 'auth',
   components: {
     AdminPostForm,
   },
-  layout: 'admin',
   methods: {
     onSubmitted(postData) {
       this.$store.dispatch('addPost', postData).then(() => {
