@@ -66,5 +66,8 @@ export default {
   env: {
     //   baseUrl: process.env.BASE_URL || 'https://nuxt-porfolio-app-default-rtdb.firebaseio.com'
     fbAPIKey: 'AIzaSyD9ELsal8bh419_ZWhgijPKY78nExAky4Y',
-  }
+  },
+  // router: {
+  //   middleware: 'log'
+  // }
 };
