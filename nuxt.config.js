@@ -1,5 +1,6 @@
 const pkg = require('./package');
 const bodyParser = require('body-parser');
+const axios = require('axios');
 
 export default {
   mode: 'universal',
@@ -77,4 +78,16 @@ export default {
     bodyParser.json(),
     '~/api',
   ],
+  generate: {
+    routes: function () {
+      axios.get('https://nuxt-porfolio-app-default-rtdb.firebaseio.com/posts')
+        .then(res => {
+          const routes = [];
+          for (const key in res.data) {
+            routes.push('/posts/' + key);
+          }
+          return routes;
+        })
+    }
+  }
 };
