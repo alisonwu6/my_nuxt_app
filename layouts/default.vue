@@ -1,8 +1,8 @@
 <template>
   <div>
-    <TheHeader @sidenavToggle="displaySidenav = !displaySidenav" />
-    <TheSidenav :show="displaySidenav" @close="displaySidenav = false" />
-    <nuxt />
+    <TheHeader @sidenavToggle="displaySidenav = !displaySidenav" :navItems="navItems" />
+    <TheSidenav :show="displaySidenav" @close="displaySidenav = false" :navItems="navItems" />
+    <nuxt class="mb-4" />
   </div>
 </template>
 
@@ -19,6 +19,11 @@ export default {
   data() {
     return {
       displaySidenav: false,
+      navItems: [
+        { title: 'Blog', to: '/posts' },
+        { title: 'About', to: '/about' },
+        { title: 'Admin', to: '/admin' },
+      ],
     };
   },
 };

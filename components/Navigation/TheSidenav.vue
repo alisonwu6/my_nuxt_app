@@ -1,12 +1,16 @@
 <template>
-  <div class="sidenav-container">
-    <div v-if="show" class="sidenav-backdrop" @click="$emit('close')"></div>
+  <div class="w-full h-full">
+    <div v-if="show" class="w-full h-full fixed top-0 left-0 z-40 bg-black opacity-50" @click="$emit('close')"></div>
     <transition name="slide-side">
-      <div v-if="show" class="sidenav">
-        <ul class="nav-list" @click="$emit('close')">
-          <li class="nav-item"><nuxt-link to="/posts">Blog</nuxt-link></li>
-          <li class="nav-item"><nuxt-link to="/about">About</nuxt-link></li>
-          <li class="nav-item"><nuxt-link to="/admin">Admin</nuxt-link></li>
+      <div v-if="show" class="bg-blue-500 h-full w-1/3 bg-blue-00 z-50 fixed top-0 left-0">
+        <ul class="mt-10" @click="$emit('close')">
+          <li
+            class="flex-rows text-center p-4 border-b-2 text-white active:bg-white active:text-yellow-400"
+            v-for="(item, index) in navItems"
+            :key="index"
+          >
+            <nuxt-link :to="item.to">{{ item.title }}</nuxt-link>
+          </li>
         </ul>
       </div>
     </transition>
@@ -17,6 +21,10 @@
 export default {
   name: 'TheSidenav',
   props: {
+    navItems: {
+      type: Array,
+      require: true,
+    },
     show: {
       type: Boolean,
       default: false,
@@ -26,33 +34,6 @@ export default {
 </script>
 
 <style scoped>
-.sidenav-container {
-  height: 100%;
-  width: 100%;
-}
-
-.sidenav-backdrop {
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
-  z-index: 1000;
-  position: fixed;
-  top: 0;
-  left: 0;
-}
-
-.sidenav {
-  height: 100%;
-  width: 300px;
-  background-color: white;
-  z-index: 10000;
-  position: fixed;
-  top: 0;
-  left: 0;
-  box-sizing: border-box;
-  padding: 30px;
-}
-
 .slide-side-enter-active,
 .slide-side-leave-active {
   transition: all 0.3s ease-out;
@@ -60,26 +41,5 @@ export default {
 .slide-side-enter,
 .slide-side-leave-to {
   transform: translateX(-100%);
-}
-
-.nav-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.nav-item {
-  margin: 20px 0;
-}
-
-.nav-item a {
-  text-decoration: none;
-  color: black;
-  font-size: 1.5rem;
-}
-
-.nav-item a:hover,
-.nav-item a:active {
-  color: red;
 }
 </style>
