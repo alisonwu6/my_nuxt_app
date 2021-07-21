@@ -1,7 +1,5 @@
 <template>
-  <div class="posts-page">
-    <PostList :posts="loadedPosts" />
-  </div>
+  <PostList :posts="loadedPosts" />
 </template>
 
 <script>
@@ -14,11 +12,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-.posts-page {
-  display: flex;
-  justify-content: center;
-  justify-items: center;
-}
-</style>

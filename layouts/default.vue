@@ -2,7 +2,7 @@
   <div class="font-body">
     <TheHeader @sidenavToggle="displaySidenav = !displaySidenav" :navItems="navItems" />
     <TheSidenav :show="displaySidenav" @close="displaySidenav = false" :navItems="navItems" />
-    <div class="w-10/12 mx-auto my-8 grid md:grid-cols-12 gap-10">
+    <div class="flex flex-col md:grid md:grid-cols-12 gap-10 w-10/12 m-auto mt-10">
       <div class="md:col-span-9">
         <nuxt />
       </div>

@@ -1,82 +1,42 @@
 <template>
-  <nuxt-link :to="postLink" class="post-preview">
-    <article>
-      <div class="post-thumbnail" :style="{ backgroundImage: 'url(' + thumbnail + ')' }"></div>
-      <div class="post-content">
-        <h1>{{ title }}</h1>
-        <p>{{ previewText }}</p>
+  <nuxt-link :to="postLink">
+    <article class="flex flex-col-reverse md:flex-row md:justify-between shadow-xl rounded mb-6">
+      <div class="w-full p-4">
+        <div class="mb-2">
+          <span class="text-gray-400 text-sm">{{ post.updatedDate | date }}</span>
+          <AppTag />
+        </div>
+        <h1 class="text-2xl text-bold text-gray-800 font-semibold">{{ post.title }}</h1>
+        <p class="text-sm text text-gray-500">{{ post.previewText }}</p>
+      </div>
+      <div class="w-full h-52 md:w-48 md:h-32 rounded-sm">
+        <img class="w-full h-full object-cover" :src="post.thumbnail" :alt="post.title" />
       </div>
     </article>
   </nuxt-link>
 </template>
 
 <script>
+import AppTag from '@/components/UI/AppTag.vue';
 export default {
   name: 'PostPreview',
+  components: {
+    AppTag,
+  },
   props: {
-    id: {
-      type: String,
+    post: {
+      type: Object,
       required: true,
     },
     isAdmin: {
       type: Boolean,
       required: true,
     },
-    title: {
-      type: String,
-      required: true,
-    },
-    previewText: {
-      type: String,
-      required: true,
-    },
-    thumbnail: {
-      type: String,
-      required: true,
-    },
   },
   computed: {
     postLink() {
-      return this.isAdmin ? '/admin/' + this.id : '/posts/' + this.id;
+      return this.post.isAdmin ? '/admin/' + this.post.id : '/posts/' + this.post.id;
     },
   },
 };
 </script>
-
-<style scoped>
-.post-preview {
-  border: 1px solid #ccc;
-  box-shadow: 0 2px 2px #ccc;
-  background-color: white;
-  width: 90%;
-}
-
-a {
-  text-decoration: none;
-  color: black;
-}
-
-@media (min-width: 850px) {
-  .post-preview {
-    width: 400px;
-    margin: 10px;
-  }
-}
-
-.post-thumbnail {
-  width: 100%;
-  height: 200px;
-  background-position: center;
-  background-size: cover;
-}
-
-.post-content {
-  padding: 10px;
-  text-align: center;
-}
-
-a:hover .post-content,
-a:active .post-content {
-  background-color: #ccc;
-}
-</style>

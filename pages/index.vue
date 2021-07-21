@@ -1,8 +1,8 @@
 <template>
   <div class="home-page">
-    <section class="intro">
+    <!-- <section class="intro">
       <h1>Get the latest tech news!</h1>
-    </section>
+    </section> -->
     <PostList :posts="loadedPosts" />
   </div>
 </template>
