@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-blue-500 h-20 flex justify-center">
+  <div class="bg-blue-500 h-20 flex justify-center mb-10">
     <header class="flex justify-between items-center w-10/12">
       <TheSideNavToggle @toggle="$emit('sidenavToggle')" />
       <div>

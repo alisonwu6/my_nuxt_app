@@ -2,7 +2,7 @@
   <div class="font-body">
     <TheHeader @sidenavToggle="displaySidenav = !displaySidenav" :navItems="navItems" />
     <TheSidenav :show="displaySidenav" @close="displaySidenav = false" :navItems="navItems" />
-    <div class="flex flex-col md:grid md:grid-cols-12 gap-10 w-10/12 m-auto mt-10">
+    <div class="flex flex-col md:grid md:grid-cols-12 gap-10 w-10/12 m-auto">
       <div class="md:col-span-9">
         <nuxt />
       </div>
@@ -36,8 +36,8 @@ export default {
     return {
       displaySidenav: false,
       navItems: [
-        { title: 'Blog', to: '/posts' },
-        { title: 'About', to: '/about' },
+        // { title: 'Blog', to: '/posts' },
+        // { title: 'About', to: '/about' },
         { title: 'Admin', to: '/admin' },
       ],
     };

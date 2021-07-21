@@ -16,6 +16,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
+        logo: ['Luckiest Guy'],
         body: ['Fira Sans Condensed']
       },
       colors: {
