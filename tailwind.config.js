@@ -15,6 +15,9 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
+      fontFamily: {
+        body: ['Fira Sans Condensed']
+      },
       colors: {
         emerald: colors.emerald,
         gray: colors.trueGray,
