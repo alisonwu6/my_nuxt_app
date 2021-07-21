@@ -1,15 +1,16 @@
 <template>
-  <div class="admin-auth-page">
-    <div class="auth-container">
-      <form @submit.prevent="onSubmit">
-        <AppControlInput type="email" v-model="email">E-Mail Address</AppControlInput>
-        <AppControlInput type="password" v-model="password">Password</AppControlInput>
-        <AppButton type="submit">{{ isLogin ? 'Login' : 'Sign Up' }}</AppButton>
-        <AppButton type="button" btn-style="inverted" style="margin-left: 10px" @click="isLogin = !isLogin"
+  <div class="flex flex-col justify-center items-center mt-8">
+    <p class="my-8 text-center text-xl text-gray-600">Login to post on <span class="font-logo"> WU' BLOG</span>.</p>
+    <form class="w-80 shadow-xl rounded p-5" @submit.prevent="onSubmit">
+      <AppControlInput type="email" v-model="email">Email</AppControlInput>
+      <AppControlInput type="password" v-model="password">Password</AppControlInput>
+      <div class="flex justify-between mt-3">
+        <AppButton class="flex-grow" type="submit" btn-style="primary">{{ isLogin ? 'Login' : 'Sign Up' }}</AppButton>
+        <AppButton class="flex-grow" type="button" btn-style="inverted" @click="isLogin = !isLogin"
           >Switch to {{ isLogin ? 'Signup' : 'Login' }}</AppButton
         >
-      </form>
-    </div>
+      </div>
+    </form>
   </div>
 </template>
 
@@ -39,19 +40,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-.admin-auth-page {
-  padding: 20px;
-}
-
-.auth-container {
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-shadow: 0 2px 2px #ccc;
-  width: 300px;
-  margin: auto;
-  padding: 10px;
-  box-sizing: border-box;
-}
-</style>

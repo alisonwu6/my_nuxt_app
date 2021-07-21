@@ -1,15 +1,18 @@
 <template>
-  <div>
+  <div class="font-body">
+    <header class="bg-blue-500 h-20 flex justify-center items-center mb-10">
+      <Logo />
+    </header>
     <nuxt />
   </div>
 </template>
 
-<style>
-html {
-  font-family: 'Open Sans', sans-serif;
-}
+<script>
+import Logo from '@/components/Logo.vue';
 
-body {
-  margin: 0;
-}
-</style>
+export default {
+  components: {
+    Logo,
+  },
+};
+</script>
