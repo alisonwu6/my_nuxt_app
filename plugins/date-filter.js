@@ -1,18 +1,18 @@
 import Vue from 'vue'
 
 const months = [
-  "January",
-  "February",
-  "March",
-  "April",
+  "Jan",
+  "Feb",
+  "Mar",
+  "Apr",
   "May",
-  "June",
-  "July",
-  "August",
-  "September",
-  "October",
-  "November",
-  "December"
+  "Jun",
+  "Jul",
+  "Aug",
+  "Sep",
+  "Oct",
+  "Nov",
+  "Dec",
 ];
 
 const dateFilter = value => {
@@ -24,7 +24,7 @@ function formatDate(inputDate) {
   const year = date.getFullYear();
   const month = date.getMonth();
   const day = date.getDate();
-  const formattedDate = day + ". " + months[month] + " " + year;
+  const formattedDate = `${year} ${months[month]} ${day}`;
   return formattedDate;
 }
 
