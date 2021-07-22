@@ -7,7 +7,7 @@
         <nuxt />
       </div>
       <div class="md:col-span-3">
-        <div class="shadow-xl rounded p-5 flex-rows justify-center">
+        <div class="shadow-xl p-5 flex-rows justify-center rounded-b-md border-t-4 border-blue-500">
           <img class="mx-auto my-4 w-24 h-24 rounded-full object-cover" src="../assets/images/wu.jpg" />
           <div class="text-left text-sm leading-6 text-gray-500">
             <p>

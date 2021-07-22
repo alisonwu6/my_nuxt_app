@@ -1,6 +1,7 @@
 <template>
   <div class="flex flex-col justify-center items-center mt-8">
-    <p class="my-8 text-center text-xl text-gray-600">Login to post on <span class="font-logo"> WU' BLOG</span>.</p>
+    <p class="text-center text-xl text-gray-600">🧐 An administator on <span class="font-logo"> WU' BLOG</span> ?</p>
+    <p class="mb-8 text-center text-xl text-gray-600">If yes, then login and create posts.</p>
     <form class="w-80 shadow-xl rounded p-5" @submit.prevent="onSubmit">
       <AppControlInput type="email" v-model="email">Email</AppControlInput>
       <AppControlInput type="password" v-model="password">Password</AppControlInput>
