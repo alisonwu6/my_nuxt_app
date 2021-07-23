@@ -38,6 +38,7 @@ export default {
    ** Plugins to load before mounting the App
    */
   plugins: [
+    '~plugins/vuelidate.js',
     '~plugins/core-components.js',
     '~plugins/date-filter.js'
   ],
