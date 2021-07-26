@@ -23,10 +23,10 @@ export default {
   /*
    ** Customize the progress-bar color
    */
-  loading: { color: '#fa924f', duration: 5000, height: '4px' },
+  loading: { color: '#fff', duration: 5000, height: '4px' },
   loadingIndicator: {
     name: 'circle',
-    color: '#fa923f'
+    color: 'rgba(59, 130, 246)'
   },
   /*
    ** Global CSS
