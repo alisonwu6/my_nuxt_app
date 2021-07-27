@@ -1,13 +1,13 @@
 <template>
-  <div class="font-body">
+  <div class="relative font-body h-full">
     <TheHeader @sidenavToggle="displaySidenav = !displaySidenav" :navItems="navItems" />
     <TheSidenav :show="displaySidenav" @close="displaySidenav = false" :navItems="navItems" />
-    <div class="flex flex-col md:grid md:grid-cols-12 gap-10 w-10/12 m-auto">
+    <div class="flex flex-col md:grid md:grid-cols-12 gap-10 w-10/12 m-auto mb-24">
       <div class="md:col-span-9">
         <nuxt />
       </div>
       <div class="md:col-span-3">
-        <div class="shadow-xl p-5 flex-rows justify-center rounded-b-md border-t-4 border-blue-500">
+        <div class="shadow-xl p-5 rounded-b-md border-t-4 border-blue-500">
           <img class="mx-auto my-4 w-24 h-24 rounded-full object-cover" src="../assets/images/wu.jpg" />
           <div class="text-left text-sm leading-6 text-gray-500">
             <p>
@@ -19,17 +19,20 @@
         </div>
       </div>
     </div>
+    <TheFooter />
   </div>
 </template>
 
 <script>
 import TheHeader from '@/components/Navigation/TheHeader';
+import TheFooter from '@/components/Navigation/TheFooter';
 import TheSidenav from '@/components/Navigation/TheSidenav';
 
 export default {
   // middleware: 'log',
   components: {
     TheHeader,
+    TheFooter,
     TheSidenav,
   },
   data() {
