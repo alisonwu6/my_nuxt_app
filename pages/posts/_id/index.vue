@@ -5,7 +5,7 @@
       <div class="info">{{ loadedPost.updatedDate | date }} | Written by {{ loadedPost.author }}</div>
     </div>
     <client-only>
-      <pre class="contnet" v-html="loadedPost.content"></pre>
+      <div class="contnet leading-loose" v-html="loadedPost.content"></div>
     </client-only>
   </div>
 </template>
@@ -27,13 +27,13 @@ export default {
 
 <style scoped>
 .contnet >>> h1 {
-  @apply mt-2 text-lg text-gray-700 font-extrabold;
+  @apply my-4 text-lg text-gray-700 font-extrabold;
 }
 .contnet >>> pre {
-  @apply text-xs leading-loose text-gray-600 bg-blue-200 p-3 rounded overflow-scroll font-semibold;
+  @apply my-2 text-xs  text-gray-600 bg-blue-200 p-3 rounded overflow-scroll font-semibold;
 }
 .contnet >>> p {
-  @apply list-inside list-decimal;
+  @apply m-0 text-xs;
 }
 .contnet >>> ul {
   @apply list-inside list-disc;
@@ -42,6 +42,6 @@ export default {
   @apply list-inside list-decimal;
 }
 .content >>> hr {
-  @apply border-yellow-300 w-48 border-2 m-auto;
+  @apply border-yellow-300 w-48 border-2 mx-auto my-4;
 }
 </style>
