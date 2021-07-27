@@ -20,9 +20,10 @@ export default {
 .primary {
   @apply bg-blue-500 text-white rounded-full inline-block hover:shadow-xl;
 }
-
-.inverted,
+.inverted {
+  @apply bg-transparent text-gray-400  border-gray-400 hover:text-blue-500;
+}
 .cancel {
-  @apply bg-transparent text-gray-400 hover:text-blue-500;
+  @apply bg-transparent rounded-full text-gray-400 border border-gray-400 hover:text-blue-500 hover:border-blue-500;
 }
 </style>
