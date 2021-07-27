@@ -47,3 +47,9 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+body {
+  background: rgb(233, 230, 230);
+}
+</style>

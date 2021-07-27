@@ -1,14 +1,11 @@
 <template>
   <div>
-    <div class="flex flex-col mb-6">
+    <div class="flex flex-col mb-10">
       <h1 class="text-2xl font-black mb-2 text-gray-800">{{ loadedPost.title }}</h1>
-      <div class="flex flex-col">
-        <div class="info">{{ loadedPost.updatedDate | date }}</div>
-        <div class="info">Written by {{ loadedPost.author }}</div>
-      </div>
+      <div class="info">{{ loadedPost.updatedDate | date }} | Written by {{ loadedPost.author }}</div>
     </div>
     <client-only>
-      <div class="contnet" v-html="loadedPost.content"></div>
+      <pre class="contnet" v-html="loadedPost.content"></pre>
     </client-only>
   </div>
 </template>
@@ -29,22 +26,22 @@ export default {
 </script>
 
 <style scoped>
+.contnet >>> h1 {
+  @apply mt-2 text-lg text-gray-700 font-extrabold;
+}
 .contnet >>> pre {
-  @apply text-sm text-gray-600 bg-blue-200 p-3 rounded overflow-scroll;
+  @apply text-xs leading-loose text-gray-600 bg-blue-200 p-3 rounded overflow-scroll font-semibold;
 }
-.contnet >>> h2 {
-  @apply mt-5 mb-3 text-lg text-gray-700 font-extrabold;
-}
-
-.contnet >>> ul {
-  @apply list-inside list-disc mb-5;
-}
-
-.contnet >>> ol {
-  @apply list-inside list-decimal mb-5;
-}
-
 .contnet >>> p {
-  @apply list-inside list-decimal mb-5;
+  @apply list-inside list-decimal;
+}
+.contnet >>> ul {
+  @apply list-inside list-disc;
+}
+.contnet >>> ol {
+  @apply list-inside list-decimal;
+}
+.content >>> hr {
+  @apply border-yellow-300 w-48 border-2 m-auto;
 }
 </style>
