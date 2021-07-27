@@ -1,7 +1,7 @@
 <template>
   <div class="flex shadow-xl rounded">
     <nuxt-link :to="postLink" class="flex flex-grow flex-col-reverse md:flex-row md:justify-between">
-      <article class="w-full p-4">
+      <article class="w-full px-2 py-1">
         <div class="mb-2">
           <span class="text-gray-400 text-sm">{{ post.updatedDate | date }}</span>
           <AppTag />

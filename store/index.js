@@ -9,7 +9,6 @@ export const state = () => ({
 // mutations and actions as objects
 export const mutations = {
   setPosts(state, posts) {
-    console.log('setPsots', posts)
     state.loadedPosts = posts;
   },
   addPost(state, post) {
@@ -36,12 +35,10 @@ export const actions = {
     return context.app.$axios
       .$get('/posts.json')
       .then(data => {
-        console.log('data', data)
         const postsArray = [];
         for (const key in data) {
           postsArray.push({ ...data[key], id: key });
         }
-        console.log('nuxtInit', postsArray)
         vuexContext.commit('setPosts', postsArray);
       })
       .catch(e => context.error(e));
@@ -67,7 +64,6 @@ export const actions = {
       .catch((e) => console.log(e));
   },
   deletePost(vuexContext, deletePost) {
-    console.log('deletePost', deletePost)
     return this.$axios
       .$delete('/posts.json?auth=' + vuexContext.state.token, { id: deletePost.id })
       .then(result => {
@@ -101,9 +97,7 @@ export const actions = {
         Cookie.set('expirationDate', new Date().getTime() + Number.parseInt(result.expiresIn) * 1000);
         return this.$axios.$post('http://localhost:3000/api/track-data', { data: 'Authenticated!' })
       })
-      .catch((e) => {
-        console.log(e);
-      });
+      .catch((e) => console.log(e));
   },
   initAuth(vuexContext, req) {
     let token;
