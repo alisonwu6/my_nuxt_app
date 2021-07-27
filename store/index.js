@@ -1,7 +1,7 @@
 import Vuex from 'vuex';
 import Cookie from 'js-cookie';
 
-const createStore = () => {
+export const createStore = () => {
   return new Vuex.Store({
     state: {
       loadedPosts: [],
@@ -148,5 +148,3 @@ const createStore = () => {
     },
   });
 };
-
-export default createStore;
