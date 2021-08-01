@@ -33,7 +33,7 @@ export default {
   @apply my-2 text-xs  text-gray-600 bg-blue-200 p-3 rounded overflow-scroll font-semibold;
 }
 .contnet >>> p {
-  @apply m-0 text-xs;
+  @apply m-3 text-lg;
 }
 .contnet >>> ul {
   @apply list-inside list-disc;
